@@ -2,26 +2,96 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;  /* Tamaño base para calcular tamaños relativos en rem */
+  }
+  body {
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    min-height: 100vh;
+    letter-spacing: 0.025rem;
+    line-height: 1.65;
+    font-weight: 300;
+    font-size: 1rem;  /* 16px, que es el tamaño base */
+    background-image: linear-gradient(to right top, theme('colors.pictonBlue.950'), theme('colors.pictonBlue.400'));
+    color: theme('colors.pictonBlue.50');
+  }
+  h1 {
+    font-size: 2.25rem;  /* 36px, por ejemplo */
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  h2 {
+    font-size: 1.75rem;  /* 28px */
+    font-weight: 500;
+    text-align: left;
+    margin-bottom: 0.75rem;
+  }
+  h3 {
+    font-size: 1.5rem;  /* 24px */
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+  }
+
+  .main-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .image-on-banner {
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .psicologia-salud {
+    text-align: center;
+  }
+
+  .section {
+    padding: 3vh;
+  }
+
+  :root {
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
+  }
+
+  .parallax-container {
+    min-height: 100vh;
+    
+    background-image: 
+    url('/pexels.jpg'), 
+    linear-gradient(to right top, theme('colors.pictonBlue.950'), theme('colors.pictonBlue.400'));
+    background-repeat: repeat;
+    background-size: auto, auto;
+    background-position: center center;
+
+    
+    /* Este es el truco para el efecto Parallax */
+    background-attachment: fixed;
+    
+    /* Asegúrate de que la imagen cubra el contenedor */
+    background-size: cover;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --foreground-rgb: 255, 255, 255;
+      --background-start-rgb: 0, 0, 0;
+      --background-end-rgb: 0, 0, 0;
+    }
+  }
 }
