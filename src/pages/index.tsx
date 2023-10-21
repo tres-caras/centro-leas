@@ -3,34 +3,28 @@ import ContactSection from "@/components/ContactSection";
 import EquipoSection from "@/components/EquipoSection";
 import QuienesSection from "@/components/QuienesSection";
 import Head from 'next/head';
-// import styled from 'styled-components';
-
-// const StyledH1 = styled.h1`
-//   font-size: 3rem; // Un tamaño más grande para hacerlo llamativo.
-//   color: #e4cfb6; // Un color claro que contraste con el fondo.
-//   text-align: center;
-//   margin-bottom: 1rem; // Espaciado para separarlo del párrafo.
-//   text-shadow: 2px 6px 4px #283455, 1px 0px 0px #00aff0, 0 0 5px #272c45;
-//   @media (max-width: 768px) {
-//     font-size: 2.5rem; // Ajuste para pantallas más pequeñas.
-//   }
-// `;
-
-// const StyledP = styled.p`
-//   font-size: 1.5rem;
-//   color: #f5e3c8; // Un color un poco diferente al h1 para dar contraste.
-//   text-align: center;
-//   margin-top: 0; // Quitar el margen superior para que esté cerca del h1.
-// `;
 
 const Home: React.FC = () => {
   return (
     <MainLayout>
       <Head>
         <title>{'Centro Leas - Psicología y Salud en Mar del Plata'}</title>
-        <meta name="description" content={'Somos un equipo de psicólogos y profesionales de la salud dedicado a la atención e investigación.'} />
+        <meta charSet="utf-8" />
+        <meta http-equiv="content-language" content="es" />
+        <link rel="canonical" href="https://centroleas.com.ar" />
+        <link rel="icon" href="favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Somos un equipo de psicólogos y profesionales de la salud que busca desarrollar las potencialidades de los individuos y el aumento de los recursos personales." />
+        <meta name="keywords" content="psicólogos en mar del plata, psicoterapia, consultorios, salud, ansiedad, terapia online, terapia de parejas, terapia familiar" />
+        <meta name="author" content="Diego Ignacio Severini" />
+        <meta name="robots" content="noarchive, index, follow" />
+        <meta httpEquiv="Cache-Control" content="max-age=7200" />
+        <meta property="og:title" content="Psicólogos y profesionales de la salud - consultorios | Leas" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://centroleas.com.ar/" />
+        <meta property="og:image" content="https://www.centroleas.com.ar/FullColor_TransparentBg_1280x1024_72dpi.png" />
+        <meta property="og:description" content="Somos un equipo de psicólogos y profesionales de la salud que busca desarrollar las potencialidades de los individuos y el aumento de los recursos personales." />
       </Head>
-      {/* <StyledP>Mar del Plata</StyledP> */}
       <QuienesSection />
       <br />
       <EquipoSection />
