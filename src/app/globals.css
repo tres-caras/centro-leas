@@ -9,7 +9,6 @@
     box-sizing: border-box;
   }
   html {
-    scroll-behavior: smooth;
     font-size: 16px;  /* Tamaño base para calcular tamaños relativos en rem */
   }
   body {
@@ -20,7 +19,7 @@
     font-weight: 300;
     font-size: 1rem;  /* 16px, que es el tamaño base */
     background-image: linear-gradient(to right top, theme('colors.pictonBlue.950'), theme('colors.pictonBlue.400'));
-    color: theme('colors.pictonBlue.50');
+    color: theme('colors.pictonBlue.900');
   }
   h1 {
     font-size: 2.25rem;  /* 36px, por ejemplo */
@@ -58,6 +57,23 @@
     animation: fadeInScale 1s forwards;
   }
   
+  .parallax-container {
+    min-height: 100vh;
+    
+    background-image: 
+    url('/pexels.jpg'), 
+    linear-gradient(to right top, theme('colors.pictonBlue.950'), theme('colors.pictonBlue.400'));
+    background-repeat: repeat;
+    background-size: auto, auto;
+    background-position: center center;
+
+    
+    /* Este es el truco para el efecto Parallax */
+    background-attachment: fixed;
+    
+    /* Asegúrate de que la imagen cubra el contenedor */
+    background-size: cover;
+}
   @keyframes fadeInScale {
     to {
       opacity: 1;
@@ -79,24 +95,6 @@
     --background-end-rgb: 255, 255, 255;
   }
 
-  .parallax-container {
-    min-height: 100vh;
-    
-    background-image: 
-    url('/pexels.jpg'), 
-    linear-gradient(to right top, theme('colors.pictonBlue.950'), theme('colors.pictonBlue.400'));
-    background-repeat: repeat;
-    background-size: auto, auto;
-    background-position: center center;
-
-    
-    /* Este es el truco para el efecto Parallax */
-    background-attachment: fixed;
-    
-    /* Asegúrate de que la imagen cubra el contenedor */
-    background-size: cover;
-}
-
   @media (prefers-color-scheme: dark) {
     :root {
       --foreground-rgb: 255, 255, 255;
@@ -104,4 +102,36 @@
       --background-end-rgb: 0, 0, 0;
     }
   }
+
+  .section {
+    padding: 3vh; 
+    height: 100vh;  /* Ajustar a la ventana del navegador */
+  }
+
+  /* Estilo para la sección del encabezado */
+.section.header-section {
+  background: linear-gradient(to right, theme('colors.pictonBlue.50'), theme('colors.pictonBlue.200'));
+}
+
+/* Estilo para la sección "Quienes" */
+.section.quienes-section {
+  background: linear-gradient(to right, theme('colors.pictonBlue.200'), theme('colors.pictonBlue.300'));
+}
+
+/* Estilo para la sección "Equipo" */
+.section.equipo-section {
+  background: linear-gradient(to right, theme('colors.pictonBlue.300'), theme('colors.pictonBlue.400'));
+}
+
+/* Estilo para la sección "Contacto" */
+.section.contact-section {
+  background: linear-gradient(to right, theme('colors.pictonBlue.400'), theme('colors.pictonBlue.500'));
+}
+
+/* Estilo para el pie de página */
+.section.footer-section {
+  background: linear-gradient(to right, theme('colors.pictonBlue.500'), theme('colors.pictonBlue.600'));
+}
+
+
 }

@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
             <a href="https://www.facebook.com/Centro-Leas-101446614992029" target="_blank" rel="noopener noreferrer">
               <FaFacebookF size={24} />
             </a>
-            <a href="https://www.instagram.com/centroleasmdp" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/centroleas" target="_blank" rel="noopener noreferrer">
               <FaInstagram size={24} />
             </a>
             <a href="mailto:centroleas@gmail.com" target="_blank" rel="noopener noreferrer">
