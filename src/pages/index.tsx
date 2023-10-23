@@ -10,11 +10,11 @@ const Home: React.FC = () => {
   const teamMembers = [
     { id: 1, imageSrc: '/lucia_c.png', name: 'Lic. Lucía Garibotti', role: 'Coordinadora' },
     { id: 2, imageSrc: '/vanesa_c.png', name: 'Lic. Vanesa Arana', role: 'Coordinadora' },
-    { id: 3, imageSrc: '/cecilia.jpeg', name: 'Lic. Cecilia Borelli', role: 'Psicóloga' },
+    { id: 3, imageSrc: '/cecilia.jpeg', name: 'Lic. Cecilia Borellini', role: 'Psicóloga' },
     { id: 4, imageSrc: '/miriam.jpeg', name: 'Lic. Miriam Fernandez', role: 'Psicóloga' },
     { id: 5, imageSrc: '/agustina.jpeg', name: 'Lic. Agustina Irigoyen', role: 'Psicóloga' },
     { id: 6, imageSrc: '/micaela.jpeg', name: 'Lic. Micaela Juarez', role: 'Psicóloga' },
-    { id: 7, imageSrc: '/denise.jpeg', name: 'Lic. Denise Asana', role: 'Psicóloga' },
+    { id: 7, imageSrc: '/denise.jpeg', name: 'Lic. Denise Asan', role: 'Psicóloga' },
   ];
   return (
     <div className='parallax-container'>
@@ -32,11 +32,11 @@ const Home: React.FC = () => {
             <div className="section equipo-section">
               <EquipoSection />
             </div>
-            <div className="section contact-section">
-              <ContactSection />
-            </div>
             <div className="section equipo-section">
               <Team members={teamMembers} />
+            </div>
+            <div className="section contact-section">
+              <ContactSection />
             </div>
             <div className="section footer-section">
               <MainFooter />
