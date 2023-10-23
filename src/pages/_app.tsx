@@ -22,6 +22,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta http-equiv="content-language" content="es" />
         <link rel="canonical" href="https://centroleas.com.ar" />
         <link rel="icon" href="favicon.ico" />
+        <meta lang='es' />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content="Somos un equipo de psicólogos y profesionales de la salud que busca desarrollar las potencialidades de los individuos y el aumento de los recursos personales." />
         <meta name="keywords" content="psicólogos en mar del plata, psicoterapia, consultorios, salud, ansiedad, terapia online, terapia de parejas, terapia familiar" />

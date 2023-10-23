@@ -39,8 +39,9 @@
   }
 
   .main-container {
-    width: 100%;
-    max-width: 1200px;
+    width: 90vh;
+    justify-content: space-around;
+    max-width: 100%;
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
@@ -127,11 +128,61 @@
 .section.contact-section {
   background: linear-gradient(to right, theme('colors.pictonBlue.400'), theme('colors.pictonBlue.500'));
 }
-
+/* Estilo para el equipo leas */
+.section.equipo-section {
+  background: linear-gradient(to right, theme('colors.pictonBlue.500'), theme('colors.pictonBlue.700'));
+}
 /* Estilo para el pie de página */
 .section.footer-section {
-  background: linear-gradient(to right, theme('colors.pictonBlue.500'), theme('colors.pictonBlue.600'));
+  background: linear-gradient(to right, theme('colors.pictonBlue.300'), theme('colors.pictonBlue.700'));
 }
 
+.team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.team-member {
+  flex: 1;
+  margin: 10px;
+  /* box-shadow: 0 4px 8px rgba(0,0,0,0.1); */
+  transition: box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrar contenido verticalmente */
+  text-align: center; /* Centrar texto */
+}
+
+/* .team-member:hover {
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+} */
+
+.team-member img {
+  width: 200px; /* o cualquier tamaño que desees */
+  height: 200px; 
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.team-member h3, .team-member p {
+  margin: 10px 0;
+  white-space: nowrap; /* Evitar que el texto se rompa */
+  overflow: hidden; /* Esconder el exceso de texto */
+  width: 100%; /* Ocupar todo el ancho del contenedor */
+}
+
+.team-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.coordinators-grid, .team-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
 
 }
