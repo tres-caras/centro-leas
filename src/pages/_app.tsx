@@ -12,17 +12,18 @@ function MyApp({ Component, pageProps }: AppProps) {
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-
           gtag('config', 'G-ED5K93QDDX');
         `}
       </Script>
       <Head>
         <title>{'Centro Leas - Psicología y Salud en Mar del Plata'}</title>
         <meta charSet="utf-8" />
-        <meta http-equiv="content-language" content="es" />
+        <meta httpEquiv="content-language" content="es" />
         <link rel="canonical" href="https://centroleas.com.ar" />
         <link rel="icon" href="favicon.ico" />
-        <meta lang='es' />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <meta lang="es" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content="Somos un equipo de psicólogos y profesionales de la salud que busca desarrollar las potencialidades de los individuos y el aumento de los recursos personales." />
         <meta name="keywords" content="psicólogos en mar del plata, psicoterapia, consultorios, salud, ansiedad, terapia online, terapia de parejas, terapia familiar" />
@@ -37,7 +38,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <Component {...pageProps} />
     </>
-  )
+  );
 }
 
 export default MyApp;
