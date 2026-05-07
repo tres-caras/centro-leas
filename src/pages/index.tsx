@@ -14,7 +14,7 @@ const Home: React.FC = () => {
     { id: 3, imageSrc: '/cecilia.jpeg', name: 'Lic. Cecilia Borellini', role: 'Psicóloga' },
     { id: 4, imageSrc: '/miriam.jpeg', name: 'Lic. Miriam Fernandez', role: 'Psicóloga' },
     { id: 5, imageSrc: '/agustina.jpeg', name: 'Lic. Agustina Irigoyen', role: 'Psicóloga' },
-    { id: 6, imageSrc: '/natalia.jpg', name: 'Lic. Natalia Silva', role: 'Psicóloga' },
+    { id: 6, imageSrc: '/natalia.jpeg', name: 'Lic. Natalia Silva', role: 'Psicóloga' },
   ];
 
   useEffect(() => {
