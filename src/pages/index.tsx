@@ -1,10 +1,11 @@
-import MainHeader from "@/components/MainHeader";
-import ContactSection from "@/components/ContactSection";
-import EquipoSection from "@/components/EquipoSection";
-import QuienesSection from "@/components/QuienesSection";
-import ReactFullpage from '@fullpage/react-fullpage';
-import MainFooter from "@/components/MainFooter";
-import Team from "@/components/Team";
+import { useEffect } from 'react';
+import Navbar from '@/components/Navbar';
+import MainHeader from '@/components/MainHeader';
+import QuienesSection from '@/components/QuienesSection';
+import EquipoSection from '@/components/EquipoSection';
+import Team from '@/components/Team';
+import ContactSection from '@/components/ContactSection';
+import Footer from '@/components/Footer';
 
 const Home: React.FC = () => {
   const teamMembers = [
@@ -16,35 +17,38 @@ const Home: React.FC = () => {
     { id: 6, imageSrc: '/micaela.jpeg', name: 'Lic. Micaela Juarez', role: 'Psicóloga' },
     { id: 7, imageSrc: '/denise.jpeg', name: 'Lic. Denise Asan', role: 'Psicóloga' },
   ];
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    );
+
+    document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+      observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className='parallax-container'>
-      <ReactFullpage
-        licenseKey={'gplv3-license'}
-        credits={{enabled: true}}
-        render={({ fullpageApi }) => (
-          <ReactFullpage.Wrapper>
-            <div className="section header-section">
-              <MainHeader />
-            </div>
-            <div className="section quienes-section">
-              <QuienesSection />
-            </div>
-            <div className="section equipo-section">
-              <EquipoSection />
-            </div>
-            <div className="section equipo-section">
-              <Team members={teamMembers} />
-            </div>
-            <div className="section contact-section">
-              <ContactSection />
-            </div>
-            <div className="section footer-section">
-              <MainFooter />
-            </div>
-          </ReactFullpage.Wrapper>
-        )}
-      />
-    </div>
+    <>
+      <Navbar />
+      <main>
+        <MainHeader />
+        <QuienesSection />
+        <EquipoSection />
+        <Team members={teamMembers} />
+        <ContactSection />
+      </main>
+      <Footer />
+    </>
   );
 };
 

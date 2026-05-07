@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,181 +10,284 @@
     padding: 0;
     box-sizing: border-box;
   }
+
   html {
-    font-size: 16px;  /* Tamaño base para calcular tamaños relativos en rem */
+    font-size: 16px;
+    scroll-behavior: smooth;
   }
+
   body {
-    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-family: 'Inter', 'Source Sans Pro', Helvetica, sans-serif;
     min-height: 100vh;
-    letter-spacing: 0.025rem;
-    line-height: 1.65;
-    font-weight: 300;
-    font-size: 1rem;  /* 16px, que es el tamaño base */
-    background-image: linear-gradient(to right top, theme('colors.pictonBlue.950'), theme('colors.pictonBlue.400'));
-    color: theme('colors.pictonBlue.900');
-  }
-  h1 {
-    font-size: 2.25rem;  /* 36px, por ejemplo */
-    font-weight: 600;
-    margin-bottom: 1rem;
-  }
-  h2 {
-    font-size: 1.75rem;  /* 28px */
-    font-weight: 500;
-    text-align: left;
-    margin-bottom: 0.75rem;
-  }
-  h3 {
-    font-size: 1.5rem;  /* 24px */
+    letter-spacing: -0.01em;
+    line-height: 1.7;
     font-weight: 400;
-    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    background-color: theme('colors.cream.50');
+    color: theme('colors.sage.900');
+    overflow-x: hidden;
   }
 
-  .main-container {
-    width: 90vh;
-    justify-content: space-around;
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', Georgia, serif;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
   }
-  
-  .image-on-banner {
-    width: 100%;
-    display: block;
-    margin: 0 auto;
+
+  h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 600;
+  }
+
+  h2 {
+    font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+    font-weight: 500;
+  }
+
+  h3 {
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    font-weight: 500;
+  }
+}
+
+/* ===== SCROLL ANIMATIONS ===== */
+@keyframes fadeInUp {
+  from {
     opacity: 0;
-    transform: scale(0.8);
-    animation: fadeInScale 1s forwards;
+    transform: translateY(40px);
   }
-  
-  .parallax-container {
-    min-height: 100vh;
-    
-    background-image: 
-    url('/pexels.jpg'), 
-    linear-gradient(to right top, theme('colors.pictonBlue.950'), theme('colors.pictonBlue.400'));
-    background-repeat: repeat;
-    background-size: auto, auto;
-    background-position: center center;
-
-    
-    /* Este es el truco para el efecto Parallax */
-    background-attachment: fixed;
-    
-    /* Asegúrate de que la imagen cubra el contenedor */
-    background-size: cover;
-}
-  @keyframes fadeInScale {
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .psicologia-salud {
-    text-align: center;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes blobMove {
+  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  25% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+  50% { border-radius: 50% 60% 30% 60% / 30% 60% 70% 40%; }
+  75% { border-radius: 60% 40% 60% 30% / 60% 40% 30% 70%; }
+}
+
+/* ===== GLASS CARD ===== */
+@layer components {
+  .glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 1.5rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .section {
-    padding: 3vh;
+  .glass-card:hover {
+    background: rgba(255, 255, 255, 0.85);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
   }
 
-  :root {
-    --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 214, 219, 220;
-    --background-end-rgb: 255, 255, 255;
+  .glass-card-dark {
+    background: rgba(53, 63, 46, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1.5rem;
   }
 
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --foreground-rgb: 255, 255, 255;
-      --background-start-rgb: 0, 0, 0;
-      --background-end-rgb: 0, 0, 0;
-    }
+  /* Animate on scroll utility */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .section {
-    padding: 3vh; 
-    height: 100vh;  /* Ajustar a la ventana del navegador */
+  .animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 
-  /* Estilo para la sección del encabezado */
-.section.header-section {
-  background: linear-gradient(to right, theme('colors.pictonBlue.50'), theme('colors.pictonBlue.200'));
+  .animate-on-scroll.delay-1 { transition-delay: 0.1s; }
+  .animate-on-scroll.delay-2 { transition-delay: 0.2s; }
+  .animate-on-scroll.delay-3 { transition-delay: 0.3s; }
+  .animate-on-scroll.delay-4 { transition-delay: 0.4s; }
+  .animate-on-scroll.delay-5 { transition-delay: 0.5s; }
+
+  /* Organic blob shape */
+  .blob {
+    animation: blobMove 8s ease-in-out infinite;
+  }
+
+  /* Section spacing */
+  .section-padding {
+    padding: clamp(4rem, 10vh, 8rem) clamp(1.5rem, 5vw, 4rem);
+  }
+
+  /* Nav link hover effect */
+  .nav-link {
+    position: relative;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: theme('colors.teal.500');
+    transition: width 0.3s ease;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  /* Smooth image reveal */
+  .img-reveal {
+    overflow: hidden;
+    border-radius: 1.5rem;
+  }
+
+  .img-reveal img {
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .img-reveal:hover img {
+    transform: scale(1.05);
+  }
+
+  /* Button styles */
+  .btn-primary {
+    background: linear-gradient(135deg, theme('colors.teal.500'), theme('colors.teal.600'));
+    color: white;
+    padding: 0.875rem 2rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: 0.01em;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(8, 196, 169, 0.3);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: theme('colors.sage.800');
+    padding: 0.875rem 2rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    border: 2px solid theme('colors.sage.300');
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .btn-secondary:hover {
+    background: theme('colors.sage.50');
+    border-color: theme('colors.sage.500');
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: linear-gradient(135deg, theme('colors.teal.600'), theme('colors.sage.600'));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Divider wave */
+  .wave-divider {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .wave-divider::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: theme('colors.cream.50');
+    clip-path: ellipse(55% 100% at 50% 0%);
+    z-index: 1;
+  }
 }
 
-/* Estilo para la sección "Quienes" */
-.section.quienes-section {
-  background: linear-gradient(to right, theme('colors.pictonBlue.200'), theme('colors.pictonBlue.300'));
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 3rem 1.25rem;
+  }
 }
 
-/* Estilo para la sección "Equipo" */
-.section.equipo-section {
-  background: linear-gradient(to right, theme('colors.pictonBlue.300'), theme('colors.pictonBlue.400'));
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-/* Estilo para la sección "Contacto" */
-.section.contact-section {
-  background: linear-gradient(to right, theme('colors.pictonBlue.400'), theme('colors.pictonBlue.500'));
-}
-/* Estilo para el equipo leas */
-.section.equipo-section {
-  background: linear-gradient(to right, theme('colors.pictonBlue.500'), theme('colors.pictonBlue.700'));
-}
-/* Estilo para el pie de página */
-.section.footer-section {
-  background: linear-gradient(to right, theme('colors.pictonBlue.300'), theme('colors.pictonBlue.700'));
+::-webkit-scrollbar-track {
+  background: theme('colors.cream.100');
 }
 
-.team-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+::-webkit-scrollbar-thumb {
+  background: theme('colors.sage.300');
+  border-radius: 4px;
 }
 
-.team-member {
-  flex: 1;
-  margin: 10px;
-  /* box-shadow: 0 4px 8px rgba(0,0,0,0.1); */
-  transition: box-shadow 0.3s;
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centrar contenido verticalmente */
-  text-align: center; /* Centrar texto */
+::-webkit-scrollbar-thumb:hover {
+  background: theme('colors.sage.400');
 }
 
-/* .team-member:hover {
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-} */
-
-.team-member img {
-  width: 200px; /* o cualquier tamaño que desees */
-  height: 200px; 
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.team-member h3, .team-member p {
-  margin: 10px 0;
-  white-space: nowrap; /* Evitar que el texto se rompa */
-  overflow: hidden; /* Esconder el exceso de texto */
-  width: 100%; /* Ocupar todo el ancho del contenedor */
-}
-
-.team-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.coordinators-grid, .team-grid {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
+/* ===== SELECTION ===== */
+::selection {
+  background: theme('colors.teal.200');
+  color: theme('colors.sage.900');
 }
